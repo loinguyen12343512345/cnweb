@@ -18,14 +18,14 @@ require_once("../../datab/dbhelper.php");
 <style>
 body {
     color: #566787;
-    background: #f7f5f2;
+    background-color: #fff;
     font-family: 'Roboto', sans-serif;
 }
 .table-responsive {
     margin: 30px 0;
 }
 .table-wrapper {
-  	min-width: 1000px;
+    /*min-width: 1000px;*/
     background: #fff;
     padding: 20px 25px;
     border-radius: 3px;
@@ -33,7 +33,7 @@ body {
 }
 .table-title {
     color: #fff;
-    background: #40b2cd;		
+    background: #B22222;        
     padding: 16px 25px;
     margin: -20px -25px 10px;
     border-radius: 3px 3px 0 0;
@@ -54,7 +54,7 @@ body {
 .search-box .input-group-addon, .search-box input {
     border-color: #ddd;
     border-radius: 0;
-}	
+}   
 .search-box input {
     height: 34px;
     padding-right: 35px;
@@ -90,7 +90,7 @@ body {
     display: block;
     height: 2.5rem;
     
-    color: white;
+    color: red;
     border-radius: 15px;
     background-color: #00FF00;
     border: none;
@@ -103,6 +103,15 @@ body {
 }
 .nav{
     text-align: center;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #black;
+}
+nav ul li a:hover{
+    
+    color: #red;
+    
 }
 </style>
 <script>
@@ -128,9 +137,11 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <div class="container text-center" style="margin-top: 3rem">
-    <ul class="nav nav-tabs">
-      
+    <nav class="container text-center " style="margin-top: 3rem">
+    <ul class="nav nav-tabs"  >
+      <li class="nav-item">
+        <a class="nav-link " href="../category/category.php">Manage Product</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" href="#">Manage Product</a>
       </li>
@@ -141,7 +152,7 @@ $(document).ready(function(){
         <a class="nav-link " href="../user/user.php">Manage Admin</a>
       </li>
     </ul>
-    </div>
+    </nav>
     <div class="" style="background-color:white;">
         <div class="table-responsive">
             <div class="table-wrapper">	
@@ -171,7 +182,7 @@ $(document).ready(function(){
                     <a href="add.php" ><button >ADD</button></a>
               </div>
               <div class="add col-md-2" >
-                    <a href="../../index.php" ><button style="background-color: pink; color: red;" >Home</button></a>
+                    <a href="../../index.php" ><button style="background-color: #00FF00; color: red;" >Home</button></a>
               </div>
               </div>
             </div>
@@ -214,7 +225,7 @@ $(document).ready(function(){
                                         <td style="text-align:center">'.$item['ml'].'</td>
 
                                         <td>
-                                            <a href="add.php?id='.$item['id'].'"><button class="btn btn-warning">Edit</button></a>
+                                            <a href="add.php?id='.$item['id'].'"><button class="btn btn-warning" style="color:white">Edit</button></a>
 
                                         </td>
                                         <td>

@@ -1,7 +1,7 @@
 <?php
 require_once ('../../datab/dbhelper.php');
 
-$id = $title = $image = $content = $content_vhat = $title_vhat1 = $type_of_new = '';
+$id = $title = $image = $content = $content_vhat = $title_vhat1 = $type_of_new = $id_category = '';
 if (!empty($_POST)) {
 	if (isset($_POST['title'])) {
 		$title = $_POST['title'];
@@ -30,15 +30,18 @@ if (!empty($_POST)) {
 		$title_vhat1 = $_POST['title_vhat1'];
 		$title_vhat1 = str_replace('"', '\\"', $title_vhat1);
 	}
-	
+	if (isset($_POST['id_category'])) {
+		$id_category = $_POST['id_category'];
+		
+	}
 
 	if (!empty($title)) {
 		$created_at = $updated_at = date('Y-m-d H:s:i');
 		//Luu vao database
 		if ($id == '') {
-			$sql = 'insert into new(title, image, content, type_of_new, created_at, updated_at, content_vhat, title_vhat1) values ("'.$title.'", "'.$image.'",  "'.$content.'", '.$type_of_new.', "'.$created_at.'", "'.$updated_at.'", "'.$content_vhat.'", "'.$title_vhat1.'")';
+			$sql = 'insert into new(title, image, content, type_of_new, created_at, updated_at, content_vhat, title_vhat1, id_category) values ("'.$title.'", "'.$image.'",  "'.$content.'", '.$type_of_new.', "'.$created_at.'", "'.$updated_at.'", "'.$content_vhat.'", "'.$title_vhat1.'", "'.$id_category.'")';
 		} else {
-			$sql = 'update new set title = "'.$title.'", updated_at = "'.$updated_at.'", image = "'.$image.'", content = "'.$content.'", type_of_new = '.$type_of_new.', content_vhat = "'.$content_vhat.'", title_vhat1 = "'.$title_vhat1.'" where id = '.$id;
+			$sql = 'update new set title = "'.$title.'", updated_at = "'.$updated_at.'", image = "'.$image.'", content = "'.$content.'", type_of_new = '.$type_of_new.', content_vhat = "'.$content_vhat.'", title_vhat1 = "'.$title_vhat1.'", id_category = "'.$id_category.'" where id = '.$id;
 		}
 
 		execute($sql);
@@ -61,6 +64,7 @@ if (isset($_GET['id'])) {
 		$content     		= $new['content'];
 		$content_vhat   = $new['content_vhat'];
 		$title_vhat1    = $new['title_vhat1'];
+		$id_category    = $new['Id_category'];
 		
 	}
 }
@@ -88,12 +92,14 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 	 <ul class="nav nav-tabs">
-     
+     	<li class="nav-item">
+        <a class="nav-link " href="../category/category.php">Manage Category</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link " href="../product/product.php">Manage Product</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">Manage News</a>
+        <a class="nav-link active" href="./news/news.php">Manage News</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="../user/user.php">Manage Admin</a>
@@ -107,6 +113,28 @@ if (isset($_GET['id'])) {
 			</div>
 			<div class="panel-body">
 				<form method="post">
+					<div class="form-group">
+					  <label  for="category">List from:</label>
+					  
+					  <select class="form-control" id="id_category" name="id_category" >
+
+					  	<option >Selection:</option>
+					  	<?php
+							$sql          = 'select * from category';
+							$categoryList = executeResult($sql);
+
+							foreach ($categoryList as $item) {
+								if ($item['id'] == $id_category) {
+									echo '<option selected value="'.$item['id'].'">'.$item['name'].'</option>';
+								} else {
+									echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
+								}
+							}
+							?>
+
+					  </select>
+					</div>
+
 					<div class="form-group">
 					  <label for="price">List from New:</label>
 					  <select class="form-control" name="type_of_new" id="type_of_new">

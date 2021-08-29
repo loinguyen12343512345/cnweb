@@ -1,7 +1,7 @@
 <?php
 require_once ('../../datab/dbhelper.php');
 
-$id = $fullname = $username = $password = $pms = '';
+$id = $fullname = $username = $password =  '';
 if (!empty($_POST)) {
     if (isset($_POST['fullname'])) {
         $fullname = $_POST['fullname'];
@@ -18,17 +18,15 @@ if (!empty($_POST)) {
         $password = $_POST['password'];
         $password = str_replace('"', '\\"', $password);
     }
-    if (isset($_POST['pms'])) {
-        $pms = $_POST['pms'];
-    }
+    
 
     if (!empty($fullname)) {
         
         //Luu vao database
         if ($id == '') {
-            $sql = 'insert into admin(fullname,username,password, pms) values ("'.$fullname.'", "'.$username.'", "'.$password.'", '.$pms.')';
+            $sql = 'insert into admin(fullname,username,password) values ("'.$fullname.'", "'.$username.'", "'.$password.'", )';
         } else {
-            $sql = 'update admin set fullname = "'.$fullname.'", username = "'.$username.'", password = "'.$password.'", pms = '.$pms.' where id = '.$id;
+            $sql = 'update admin set fullname = "'.$fullname.'", username = "'.$username.'", password = "'.$password.'" where id = '.$id;
         }
 
         execute($sql);
@@ -47,7 +45,7 @@ if (isset($_GET['id'])) {
         $fullname       = $admin['fullname'];
         $username       = $admin['username'];
         $password       = $admin['password'];
-        $pms            = $admin['pms'];
+        
     }
 }
 ?>
@@ -149,7 +147,9 @@ body {
 </head>
 <body>
     <ul class="nav nav-tabs">
-      
+      li class="nav-item">
+        <a class="nav-link " href="../category/category.php">Manage Product</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link " href="../product/product.php">Manage Product</a>
       </li>
@@ -157,7 +157,7 @@ body {
         <a class="nav-link " href="../news/news.php">Manage News</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">Manage Admin</a>
+        <a class="nav-link active" href="./user/user.php">Manage Admin</a>
       </li>
     </ul>
     <div class="container">
@@ -184,22 +184,7 @@ body {
                       <input required="true" type="text" class="form-control" id="password" name="password" value="<?=$password?>">
                     </div>
 
-                    <div class="form-group">
-                      <label for="name">Choose Permissions:</label>
-                      <select class="form-control" name="pms" id="pms">
-                        <option>Selection</option>
-                                <?php if ($pms == 0 ){
-                                    $names = "User" ;// Nó chỉ  ở đây được thôi k đi đâu nên k lo sợ trùng
-                                }else{
-                                    $names = "Admin" ;
-                                } ?>
-                                    
-                        <option value="0" <?php if ($pms ==0) { echo "selected";} ?>>User</option>
-                        <option value="1" <?php if ($pms ==1) { echo "selected";} ?>>Admin</option>
-
-        
-                      </select>
-                    </div>
+                  
                     
                     <button class="btn btn-success">Save</button>
                 </form>

@@ -1,7 +1,7 @@
 <?php
 require_once ('../../datab/dbhelper.php');
 
-$id = $title_menu = $image_menu = $video = $image_product1 = $image_product2 = $image_product3 = $title_product = $docon = $chai = $ml= $content = $chungloai = $title_product1 = $title_product2 = $type_of_product = '';
+$id = $title_menu = $image_menu = $video = $image_product1 = $image_product2 = $image_product3 = $title_product = $docon = $chai = $ml= $content = $chungloai = $title_product1 = $title_product2 = $type_of_product = $id_category = '';
 if (!empty($_POST)) {
 	if (isset($_POST['title_menu'])) {
 		$title_menu = $_POST['title_menu'];
@@ -67,18 +67,20 @@ if (!empty($_POST)) {
 	if (isset($_POST['type_of_product'])) {
 		$type_of_product = $_POST['type_of_product'];
 	}
-
+	if (isset($_POST['id_category'])) {
+		$id_category = $_POST['id_category'];
+	}
 	if (!empty($title_menu)) { 
 		$created_at = $updated_at = date('Y-m-d H:s:i');
 		//Luu vao database
 		if ($id == '') {
-			$sql = 'insert into product(title_menu, image_menu, video, image_product1, image_product2, image_product3, title_product, docon, chai, ml, chungloai, title_product1, title_product2, content, type_of_product, created_at, updated_at) values ("'.$title_menu.'", "'.$image_menu.'", "'.$video.'", "'.$image_product1.'", "'.$image_product2.'", "'.$image_product3.'", "'.$title_product.'", "'.$docon.'", "'.$chai.'", "'.$ml.'", "'.$chungloai.'", "'.$title_product1.'",  "'.$title_product2.'", "'.$content.'", '.$type_of_product.', "'.$created_at.'", "'.$updated_at.'")';
+			$sql = 'insert into product(title_menu, image_menu, video, image_product1, image_product2, image_product3, title_product, docon, chai, ml, chungloai, title_product1, title_product2, content, type_of_product, created_at, updated_at, id_category) values ("'.$title_menu.'", "'.$image_menu.'", "'.$video.'", "'.$image_product1.'", "'.$image_product2.'", "'.$image_product3.'", "'.$title_product.'", "'.$docon.'", "'.$chai.'", "'.$ml.'", "'.$chungloai.'", "'.$title_product1.'",  "'.$title_product2.'", "'.$content.'", '.$type_of_product.', "'.$created_at.'", "'.$updated_at.'", "'.$id_category.'")';
 		} else {
-			$sql = 'update product set title_menu = "'.$title_menu.'", image_menu = "'.$image_menu.'", content = "'.$content.'", type_of_product = '.$type_of_product.', video = "'.$video.'", image_product1 = "'.$image_product1.'", image_product2 = "'.$image_product2.'", image_product3 = "'.$image_product3.'", title_product = "'.$title_product.'", docon = "'.$docon.'", chai = "'.$chai.'", ml = "'.$ml.'", chungloai = "'.$chungloai.'", title_product1 = "'.$title_product1.'", title_product2 = "'.$title_product2.'", updated_at = "'.$updated_at.'" where id = '.$id;
+			$sql = 'update product set title_menu = "'.$title_menu.'", image_menu = "'.$image_menu.'", content = "'.$content.'", type_of_product = '.$type_of_product.', video = "'.$video.'", image_product1 = "'.$image_product1.'", image_product2 = "'.$image_product2.'", image_product3 = "'.$image_product3.'", title_product = "'.$title_product.'", docon = "'.$docon.'", chai = "'.$chai.'", ml = "'.$ml.'", chungloai = "'.$chungloai.'", title_product1 = "'.$title_product1.'", title_product2 = "'.$title_product2.'", updated_at = "'.$updated_at.'", id_category = "'.$id_category.'" where id = '.$id;
 		}
 
 		execute($sql);
-		// print_r($sql);exit();
+		//print_r($sql);exit();
 		// print($sql);
 		// exit();
 		header('Location: product.php');
@@ -105,8 +107,9 @@ if (isset($_GET['id'])) {
 		$title_product1       = $product['title_product1'];
 		$title_product2       = $product['title_product2'];
 		
-		$type_of_product 					= $product['type_of_product']; // check
+		$type_of_product 			= $product['type_of_product']; // check
 		$content     					= $product['content'];
+		$id_category     			= $product['id_category'];
 	}
 }
 ?>
@@ -133,9 +136,11 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 	 <ul class="nav nav-tabs">
-      
       <li class="nav-item">
-        <a class="nav-link active" href="#">Manage Product</a>
+        <a class="nav-link " href="../category/category.php">Manage Category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="./product/product.php">Manage Product</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="../news/news.php">Manage News</a>
@@ -153,11 +158,34 @@ if (isset($_GET['id'])) {
 			<div class="panel-body">
 				<form method="post">
 					<div class="form-group">
-					  <label for="price">List from Category:</label>
+					  <label  for="product">List from Category:</label>
+					  
+					  <select  class="form-control" id="id_category" name="id_category" >
+
+					  	<option >Selection:</option>
+					  	
+					  	<?php
+							$sql          = 'select * from category';
+							$categoryList = executeResult($sql);
+
+							foreach ($categoryList as $item) {
+								if ($item['id'] == $id_category) {
+									echo '<option selected value="'.$item['id'].'">'.$item['name'].'</option>';
+								} else {
+									echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
+								}
+							}
+							?>
+
+					  </select>
+					</div>
+
+					<div class="form-group">
+					  <label for="price">List:</label>
 					  <select class="form-control" name="type_of_product" id="type_of_product">
 					  	<option>Selection</option>
 								<?php if ($type_of_product == 0 ){
-									$names = "Nước Ngọt" ;// Nó chỉ  ở đây được thôi k đi đâu nên k lo sợ trùng
+									$names = "Nước Ngọt" ;
 								}else{
 									$names = "Bia" ;
 								} ?>

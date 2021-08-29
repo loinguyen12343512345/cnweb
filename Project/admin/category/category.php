@@ -7,7 +7,7 @@ require_once("../../datab/dbhelper.php");
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>USERS-MANAGE</title>
+<title>CATEGORY-MANAGE</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -114,7 +114,6 @@ nav ul li a:hover{
     
 }
 </style>
-
 <script>
 $(document).ready(function(){
 	// Activate tooltips
@@ -141,7 +140,7 @@ $(document).ready(function(){
     <nav class="container text-center" style="margin-top: 3rem">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link " href="../category/category.php">Manage Product</a>
+        <a class="nav-link active" href="#">Manage Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="../product/product.php">Manage Product</a>
@@ -150,17 +149,17 @@ $(document).ready(function(){
         <a class="nav-link " href="../news/news.php">Manage News</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">Manage Admin</a>
+        <a class="nav-link " href="../user/user.php">Manage Admin</a>
       </li>
     </ul>
     </nav>
-    <div class="container-lg" >
+    <div class="container-lg">
         <div class="table-responsive">
             <div class="table-wrapper">			
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2> <b>Admin </b>Manage</body></h2>
+                            <h2><b>Category </b>Manager</h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
@@ -169,13 +168,13 @@ $(document).ready(function(){
                                     <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
                                 </div>
                             </div>
-                        </div> <div class="container">Designer by Lợi and Huy</div>
+                        </div>
                     </div>
                   
                 </div>
-               <div class="row" > 
+               <div class="row"> 
               <div class="add col-md-10">
-                    <a href="add.php"  ><button style="color:red" >ADD</button></a>
+                    <a href="add.php" ><button >ADD</button></a>
               </div>
               <div class="add col-md-2" >
                     <a href="../../index.php" ><button style="background-color: #00ff00; color: red;" >Home</button></a>
@@ -186,50 +185,40 @@ $(document).ready(function(){
                     <thead >
                         <tr>
                             <th width="50px">id</th>
-                            <th>FullName</th>
-                            <th>UserName</th>
-                            <th>PassWord</th>
-                            
-                            
-                            <th width="50px "></th>
+                            <th>Name</th>
+                                                        
+                            <th width="50px"></th>
                             <th width="50px"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        //Lay danh sach admin tu database
-                        $sql          = 'select * from admin';
-                        $adminList    = executeResult($sql);
+                        //Lay danh sach danh muc tu database
+                        $sql          = 'select * from category';
+                        $categoryList    = executeResult($sql);
 
                         $index = 1;
-                        foreach ($adminList as $item) {
-                            
+                        foreach ($categoryList as $item) {
                             echo '<tr>
                                         <td>'.($index++).'</td>
-                                        <td>'.$item['fullname'].'</td>
-                                        <td>'.$item['username'].'</td>
-                                        <td>'.$item['password'].'</td>
-                                        
-                                        
-                                        
+                                        <td>'.$item['name'].'</td>
                                         <td>
-                                            <a href="add.php?id='.$item['id'].'"><button class="btn btn-warning" style="color:white">Edit</button></a>
+                                            <a href="add.php?id='.$item['id'].'"><button class="btn btn-warning" style="color:white">Sửa</button></a>
 
                                         </td>
                                         <td>
-                                            <button class="btn btn-danger" onclick="deleteadmin('.$item['id'].')">Delete</button>
+                                            <button class="btn btn-danger" onclick="deletecategory('.$item['id'].')">Xoá</button>
                                         </td>
                                     </tr>';
                         }
                         ?>
                     </tbody>
-                    
                 </table>
             </div>
         </div>        
-    </div>     
+    </div>
     <script type="text/javascript">
-        function deleteadmin(id) {
+        function deletecategory(id) {
             var option = confirm('Bạn có chắc chắn muốn xoá danh mục này không?')
             if(!option) {
                 return;
@@ -237,13 +226,13 @@ $(document).ready(function(){
 
             console.log(id)
             //ajax - lenh post
-            $.post('deleteuser.php', {
+            $.post('deletecategory.php', {
                 'id': id,
                 'action': 'delete'
             }, function(data) {
                 location.reload()
             })
         }
-    </script>
+    </script>     
 </body>
 </html>
