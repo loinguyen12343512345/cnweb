@@ -4,7 +4,7 @@
     $wh = "";
 ?>
 <!--sildeshow -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:62rem">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -89,7 +89,7 @@
                     <div class="row">
                       <div class="aye col-sm-6">
                       <?php
-                       $sql= "select * from new where id=2";
+                       $sql= "select * from new where id=2 ";
                       
                       $datas = executeResult($sql);
 

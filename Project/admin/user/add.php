@@ -24,7 +24,7 @@ if (!empty($_POST)) {
         
         //Luu vao database
         if ($id == '') {
-            $sql = 'insert into admin(fullname,username,password) values ("'.$fullname.'", "'.$username.'", "'.$password.'", )';
+            $sql = 'insert into admin(fullname,username,password) values ("'.$fullname.'", "'.$username.'", "'.$password.'" )';
         } else {
             $sql = 'update admin set fullname = "'.$fullname.'", username = "'.$username.'", password = "'.$password.'" where id = '.$id;
         }
@@ -147,8 +147,8 @@ body {
 </head>
 <body>
     <ul class="nav nav-tabs">
-      li class="nav-item">
-        <a class="nav-link " href="../category/category.php">Manage Product</a>
+      <li class="nav-item">
+        <a class="nav-link " href="../category/category.php">Manage Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="../product/product.php">Manage Product</a>

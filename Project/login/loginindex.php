@@ -12,6 +12,10 @@
 	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 		<style >
+			body{
+				background: url(https://www.sabeco.com.vn/Data/Sites/1/media/intro_bg/homebg.jpg);
+				height: 100%;
+			}
 			@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|openwebicons|zocial);
 
 			/* brandico */

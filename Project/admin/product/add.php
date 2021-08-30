@@ -137,7 +137,7 @@ if (isset($_GET['id'])) {
 <body>
 	 <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link " href="../category/category.php">Manage Category</a>
+        <a class="nav-link " href="../category/category.php">Manage Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="./product/product.php">Manage Product</a>

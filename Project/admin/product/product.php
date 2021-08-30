@@ -140,7 +140,7 @@ $(document).ready(function(){
     <nav class="container text-center " style="margin-top: 3rem">
     <ul class="nav nav-tabs"  >
       <li class="nav-item">
-        <a class="nav-link " href="../category/category.php">Manage Product</a>
+        <a class="nav-link " href="../category/category.php">Manage Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="#">Manage Product</a>
@@ -179,10 +179,10 @@ $(document).ready(function(){
             <div class="container" style="background-color:white;">
                <div class="row"> 
               <div class="add col-md-10">
-                    <a href="add.php" ><button >ADD</button></a>
+                    <a href="add.php" ><button style="background-color: #00ff00; color: white;" >ADD</button></a>
               </div>
               <div class="add col-md-2" >
-                    <a href="../../index.php" ><button style="background-color: #00FF00; color: red;" >Home</button></a>
+                    <a href="../../index.php" ><button style="background-color: #B22222; color: white;" >Home</button></a>
               </div>
               </div>
             </div>

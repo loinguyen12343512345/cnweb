@@ -12,21 +12,21 @@
 			// $data = mysqli_fetch_assoc($user); 
 
 			if(mysqli_num_rows($user)>0){
-				if($_POST["username"]=="nvloi" ){	
-					echo "<script>
-					      alert('--- Xin chào admin ! Chuyển hướng đăng nhập vào trang quản trị----');
-						  window.location='http://localhost/project/admin/product/product.php';
-					      </script>";
-					$_SESSION["username"] = $usrnm;
+				// if($_POST["username"]=="nvloi" ){	
+				// 	echo "<script>
+				// 	      alert('--- Xin chào admin ! Chuyển hướng đăng nhập vào trang quản trị----');
+				// 		  window.location='http://localhost/project/admin/product/product.php';
+				// 	      </script>";
+				// 	$_SESSION["username"] = $usrnm;
 
 					
 
-				}
-				else{
+				// }
+				// else{
 
 				$_SESSION["username"] = $usrnm;
-				header("Location: ../index.php");
-				}
+				header("Location: ../admin/category/category.php");
+				
 			}
 			else{
 				echo "<script>

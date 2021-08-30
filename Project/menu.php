@@ -3,11 +3,7 @@ require_once('datab/dbhelper.php');
 session_start();
 if (isset($_SESSION['username'])) {
    $sql = "select pms from admin where username = '".$_SESSION['username']."'" ;
-
-  $check = executeSingleResult($sql);
-  if ($check != null) {
-    $status = $check['pms'];
-  }
+  
 
 }
 ?>
@@ -59,7 +55,7 @@ if (isset($_SESSION['username'])) {
   
   <nav class="navbar  navbar-expand-xl bg-white sticky-top "  >
       <div class="container">
-          <a href="./index.html" class="navbar-brand d-flex align-items-center"> <img src="./img/logo-foo.png" alt=""></a>
+          <a href="./index.php" class="navbar-brand d-flex align-items-center"> <img src="./img/logo-foo.png" alt=""></a>
           <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon " style="color: black;"></span>
           </button>
@@ -217,13 +213,13 @@ if (isset($_SESSION['username'])) {
                   </li>
                 </a>
                 
-                <?php if ($status == 1) {?>
+                
                 <a href='./admin/product/product.php'>
                   <li>
                     <i class= 'fa fa-book' aria-hidden='true' style='' ></i><span style=''>Trang quản trị</span>
                   </li>
                 </a>
-                <?php } ?>
+                
 
         <?php  } ?>
         
