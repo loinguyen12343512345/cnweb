@@ -1,6 +1,6 @@
 <?php
 require_once ('../../datab/dbhelper.php');
-
+require_once ('../er.php');
 $id = $title_menu = $image_menu = $video = $image_product1 = $image_product2 = $image_product3 = $title_product = $docon = $chai = $ml= $content = $chungloai = $title_product1 = $title_product2 = $type_of_product = $id_category = '';
 if (!empty($_POST)) {
 	if (isset($_POST['title_menu'])) {
@@ -118,6 +118,7 @@ if (isset($_GET['id'])) {
 <head>
 	<title>Add/Fix Product</title>
 	<!-- Latest compiled and minified CSS -->
+	<link rel='shortcut icon' href='https://www.sabeco.com.vn/Data/Sites/1/skins/default/favicon.ico' />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 	<!-- jQuery library -->

@@ -1,7 +1,7 @@
 <?php
 	include('menu.php');
   require_once('datab/dbhelper.php');
-  $wh = "";
+  
 ?>
 <div id="prod">
   <?php

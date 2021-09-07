@@ -1,7 +1,7 @@
 <?php 
 	include('menu.php');
   	require_once('datab/dbhelper.php');
-  	$wh = "";
+  	
 ?>
 
 <div id="ctttsk">
@@ -15,6 +15,7 @@
 			      $sql =  " select * from new where id =".$_GET['id']."  ";
 			     
 			      $ttsk =  executeSingleResult($sql) ;
+			      
 			      if($ttsk != null) {
 			        
 							$title        = $ttsk['title'];

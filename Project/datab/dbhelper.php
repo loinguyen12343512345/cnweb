@@ -1,6 +1,7 @@
 <?php
 require_once ('config.php');
 $con = mysqli_connect(HOST, USERNAME, PASSWORD, DATABASE);
+//xử lý
 function execute($sql) {
 	//save data into table
 	// open connection to database
@@ -11,7 +12,7 @@ function execute($sql) {
 	//close connection
 	mysqli_close($con);
 }
-
+//lay theo mang
 function executeResult($sql) {
 	//save data into table
 	// open connection to database
@@ -28,7 +29,7 @@ function executeResult($sql) {
 
 	return $data;
 }
-
+//lay 1 ban ghi
 function executeSingleResult($sql) {
 	//save data into table
 	// open connection to database

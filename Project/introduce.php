@@ -133,7 +133,7 @@
 <!-- tổng quan -->
 <section id="part-1" class="about-overview clearfix">
 <div id="tq">
-	<div class="container">
+	<div class="container w3-animate-bottom">
 		<hr class="text-center" style="width: 70px; text-align: center;">
 		<h3 style="text-align: center;">Bật lên sức mạnh nội lực trước vận hội mới </h3>
 		<p style="text-align: center; font-size: 15px;">Trong xu thế hội nhập sâu rộng vào nền kinh tế thế giới hiện nay, chiến lược đúng đắn có vai trò quyết định trong sự phát triển và lớn mạnh của doanh nghiệp. Với những nỗ lực phát triển bền bỉ và ổn định,  không ngừng nâng cao chất lượng, đa dạng hóa sản phẩm thỏa mãn sự mong đợi của người tiêu dùng,  hiện tại <b>–   Bia Sài Gòn </b>đang chiếm giữ vị trí dẫn đầu trong ngành Bia VN và 5 lần liên tục vinh dự được công nhận là <b>Thương hiệu Quốc Gia.  Bia Sài Gòn </b>cũng đã tự hào trở thành thành viên thứ 351 tại Học viện Bia Berlin – một trong những cái nôi của văn hóa bia toàn cầu. </p>

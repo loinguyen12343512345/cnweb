@@ -12,14 +12,15 @@
             <hr style="width: 50px;">
              <h4>TIN HOT</h4>
              <?php
-                       $sql= "select * from new where id=14";
+                       $sql= "select * from new where id=11";
                       
                       $datas = executeResult($sql);
 
              ?>
               <?php foreach ($datas as $row) {?>
              <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image']; ?>" style="height: 300px;width: 100%;"></a>
-             <div class="container" style="margin-top:30px;">
+             <div class="container" >
+                <p class="disabled" style="font-size:12px ;color: gray; padding-top: 10px"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['updated_at']; ?></p>
                <a href=""><h6><?php echo $row['title']; ?> <i class="fa fa-caret-right"></i></h6></a>
                <p>Sau những thành công tại Đà Nẵng (25-26/8) và Vũng Tàu (1-2/9), đại nhạc hội “Beach Festival Twist all Summer” sẽ đổ bộ thành phố biển Nha Trang vào 8-9/9</p>
                 <?php }?>
@@ -29,63 +30,25 @@
           <div class="col-md-6 clearfix" style=" margin-top: 5.3rem" >
             
             <div class="row">
-              <div class="col-md-6">
-                      <?php
-                       $sql= "select * from new where id=15";
+              <?php
+                       $sql= "select * from new where type_of_new = 0 order by id  limit 8,4";
                       
                       $datas = executeResult($sql);
 
                       ?>
                       <?php foreach ($datas as $row) {?>
+              <div class="col-md-6">
+                      
                       
                 <a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image'] ?>" style="width: 100%;"></a>
                 <a href="" style="padding-top: 10px;"><h6><?php echo $row['title'] ?> <i class="fa fa-caret-right"></i></h6></a>
                 <hr>
-                <?php }?>
+                
               </div>
-              <div class="col-md-6">
-                 <?php
-                       $sql= "select * from new where id=16";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                  <?php foreach ($datas as $row) {?>
-                <a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image'] ?>" style="width: 100%;"></a>
-                <a href=""><h6><?php echo $row['title'] ?> <i class="fa fa-caret-right"></i></h6></a>
-                <hr>
-                <?php }?>
-              </div>
+              <?php }?>
+             
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <?php
-                       $sql= "select * from new where id=17";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                  <?php foreach ($datas as $row) {?>
-                <a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image'] ?>" style="width: 100%;"></a>
-                <a href=""><h6><?php echo $row['title'] ?> <i class="fa fa-caret-right"></i></h6></a>
-                <hr>
-                <?php }?>
-              </div>
-              <div class="col-md-6">
-                <?php
-                       $sql= "select * from new where id=18";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                  <?php foreach ($datas as $row) {?>
-                <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image'] ?>" style="width: 100%;"></a>
-                <a href=""><h6><?php echo $row['title'] ?> <i class="fa fa-caret-right"></i></h6></a>
-                <hr>
-                <?php }?>
-              </div>
-              
-            </div>
+           
           </div>
           </div>
           <div class="row" style="margin-top:20px">
@@ -93,19 +56,20 @@
               <hr style="width: 50px;">
              <h4>TIN TỨC - SỰ KIỆN</h4>
              <?php
-                       $sql= "select * from new where id=6";
+                       $sql= "select * from new where type_of_new = 0 order by id desc limit 1 ";
                       
                       $datas = executeResult($sql);
 
                       ?>
                   <?php foreach ($datas as $row) {?>
-             <img src="<?php echo $row['image'] ?>" style="width:100%; height:150px">
+             <img src="<?php echo $row['image'] ?>" style="width:100%; height:300px">
+             <p class="disabled" style="font-size:12px ;color: gray; padding-top: 10px"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['updated_at']; ?></p>
              <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><h6><?php echo $row['title'] ?> <i class="fa fa-caret-right"></i></h6></a>
              <?php }?>
             </div>
             <div class="col-md-4 clearfix" style="padding-top: 60px;">
                <?php
-                       $sql= "select * from new where id=1 or id=2 or id=3";
+                       $sql= "select * from new where type_of_new = 0 order by id limit 3";
                       
                       $datas = executeResult($sql);
 
@@ -137,7 +101,7 @@
               <div class=" container" style="background-color:#F5F5F5; padding-top:10px ; margin-top:30px">
                 <h5>VĂN HÓA & ẨM THỰC</h5> 
                  <?php
-                       $sql= "select * from new where id=12";
+                       $sql= "select * from new where id=9";
                       
                       $datas = executeResult($sql);
 

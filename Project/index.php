@@ -1,7 +1,7 @@
 <?php
   include('menu.php');
   require_once('datab/dbhelper.php');
-    $wh = "";
+    
 ?>
 <!--sildeshow -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:62rem">
@@ -42,86 +42,77 @@
         <span class="sr-only">Next</span>
       </a>
     </div> 
+    <div class="clearfix"></div>
 <!-- tintuc -->
-    <div id="sp">
+    <div id="sp" style="margin-top: 6.3rem">
       <div class="container-fluid">
         <div class="container">
           <div class="row">
-            <div class="col-sm-6" style="border-right: 1px solid gray;">
-              <div class="sp1">
-              <hr class="hrsp" style="width: 70px;border-color: black;">
-              <h3>TIN CỔ ĐÔNG</h3>
-              <div class="tcd">
+              <div class="col-sm-6 w3-animate-left" style="border-right: 1px solid gray;">
+                <div class="sp1">
+                <hr class="hrsp" style="width: 70px;border-color: black;">
+                <h3>TIN CỔ ĐÔNG</h3>
+                <div class="tcd">
 
-                <a href="ctttcodong.php"><figure><img src="./img/hinh-mau.jpg"></figure></a>
-                <a href="">Đại hội đồng cổ đông bất thường (Lấy ý kiến bằng văn bản)</a>
-                <hr class="hrtt">
-                <div class="row">
-                  <div class="aye col-sm-6">
                   <a href="ctttcodong.php"><figure><img src="./img/hinh-mau.jpg"></figure></a>
-                  <a href="">Báo cáo quản trị 6 tháng đầu năm 2018</a></div>
-                  <div class="aye col-sm-6" >
+                  <a href="">Đại hội đồng cổ đông bất thường (Lấy ý kiến bằng văn bản)</a>
+                  <hr class="hrtt">
+                  <div class="row">
+                    <div class="aye col-sm-6">
                     <a href="ctttcodong.php"><figure><img src="./img/hinh-mau.jpg"></figure></a>
-                    <a href="">Báo cáo Tài chính QII/2018</a></div>
+                    <a href="">Báo cáo quản trị 6 tháng đầu năm 2018</a></div>
+                    <div class="aye col-sm-6" >
+                      <a href="ctttcodong.php"><figure><img src="./img/hinh-mau.jpg"></figure></a>
+                      <a href="">Báo cáo Tài chính QII/2018</a></div>
+                  </div>  
+                </div>
+                </div>
+              </div>
+            
+            <div class="col-sm-6 w3-animate-right">
+                <div class="sp2">
+                  <hr class="hrsp" style="width: 70px;border-color: black;">
+                  <h3>TIN TỨC - SỰ KIỆN</h3>
+                    <div class="ttsk">
+                      <div class="ttsk1">
+                        <?php
+                         $sql= "select * from new where type_of_new = 0 order by id  limit 1";
+                        
+                        $datas = executeResult($sql);
+
+                        ?>
+                        <?php foreach ($datas as $row) {?>
+                        <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
+                        <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
+                        <?php }?>
+                      </div>
+                      <hr class="hrtt">
+                      <div class="row">
+                        <?php
+                         $sql= "select * from new where type_of_new = 0 order by id limit 1,2 ";
+                        
+                        $datas = executeResult($sql);
+
+                        ?>
+                        <?php foreach ($datas as $row) {?>
+                        <div class="aye col-sm-6">
+                        
+                        <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
+                        <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
+                        
+                      </div>
+                        <?php }?>
+                    </div>
                 </div>  
               </div>
-              </div>
             </div>
-            
-          <div class="col-sm-6">
-              <div class="sp2">
-                <hr class="hrsp" style="width: 70px;border-color: black;">
-                <h3>TIN TỨC - SỰ KIỆN</h3>
-                  <div class="ttsk">
-                    <div class="ttsk1">
-                      <?php
-                       $sql= "select * from new where id=1";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                      <?php foreach ($datas as $row) {?>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
-                      <?php }?>
-                    </div>
-                    <hr class="hrtt">
-                    <div class="row">
-                      <div class="aye col-sm-6">
-                      <?php
-                       $sql= "select * from new where id=2 ";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                      <?php foreach ($datas as $row) {?>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
-                      <?php }?>
-                    </div>
-                      <div class="aye col-sm-6" >
-                        <?php
-                       $sql= "select * from new where id=3";
-                      
-                      $datas = executeResult($sql);
-
-                      ?>
-                      <?php foreach ($datas as $row) {?>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
-                      <a href="chitiettt-sk.php? id=<?php echo $row['id'] ?>"><?php echo $row['title']; ?></a>
-                      <?php }?>
-                    </div>
-                  </div>
-              </div>  
-            </div>
-          </div>
           </div>
         </div>
       </div>
     </div>
 <!-- TDH -->
   <div id="prod">
-    <div class="container">
+    <div class="container w3-animate-bottom">
        <hr class="hrprod" style="border-color: black;">
        <h3><b>CÁC SẢN PHẨM</b> CỦA BIA SÀI GÒN</h3>
       <div class="row">    
@@ -142,19 +133,19 @@
     <li class="nav-item"><a data-toggle="tab" role="tab" class="nav-link" href="#tab2"><div class="brandcol"><figure><div class="brandimg"><img src="<?php echo $row['image_menu']; ?>" alt="Bia Saigon Export"></div></figure></div></a></li>
     <?php } ?>
      <?php
-                       $sql= "select * from product where id=8";
+                       $sql= "select * from product where id=3";
                       $datas = executeResult($sql); ?>
                       <?php foreach ($datas as $row) {?>
     <li class="nav-item"><a data-toggle="tab" role="tab" class="nav-link" href="#tab3"><div class="brandcol"><figure><div class="brandimg"><img src="<?php echo $row['image_menu']; ?>" alt="Bia Saigon Lager"></div></figure></div></a></li>
     <?php } ?>
      <?php
-                       $sql= "select * from product where id=9";
+                       $sql= "select * from product where id=6";
                       $datas = executeResult($sql);?>
                       <?php foreach ($datas as $row) {?>
     <li class="nav-item"><a data-toggle="tab" role="tab" class="nav-link" href="#tab4"><div class="brandcol"><figure><div class="brandimg1"><img src="<?php echo $row['image_menu']; ?>" alt="333"></div></figure></div></a></li>
     <?php } ?>
     <?php
-                       $sql= "select * from product where id=10";
+                       $sql= "select * from product where id=5";
                       $datas = executeResult($sql);?>
                       <?php foreach ($datas as $row) {?>
     <li class="nav-item"><a data-toggle="tab" role="tab" class="nav-link" href="#tab5"><div class="brandcol"><figure><div class="brandimg"><img src="<?php echo $row['image_menu']; ?>" alt="Bia Lạc Việt"></div></figure></div></a></li>
@@ -282,15 +273,15 @@
               <hr class="hrprod" style="border-color: black;">
               <h3><b>VĂN HÓA</b> & ẨM THỰC</h3>
               <div class="row">
-              <div class="col-6">
+              <div class="col-6 w3-animate-left">
                 <div class="row">
                 <div class="col-6">
                   <?php
-                       $sql= "select * from new where id=13";
+                       $sql= "select * from new where id=10";
                       $datas = executeResult($sql);
                       ?>
                       <?php foreach ($datas as $row) {?>
-                  <a href="chitietvh-at.php?id=<?php echo $row['id']; ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
+                  <a href="chitietvh-at.php?id=<?php echo $row['id']; ?>"><figure><img style="border-radius: 10px" src="<?php echo $row['image']; ?>"></figure></a>
                 </div>
                 <div class="col-6" >
                   <hr class="hrprod" style="border-color: black;width: 40px;">
@@ -301,7 +292,7 @@
                 <div id="vh2">
                  <div class="row">
                 <?php
-                      $sql= "select * from new where id=12";
+                      $sql= "select * from new where id=9";
                       $datas = executeResult($sql);
                       ?>
                       <?php foreach ($datas as $row) {?>
@@ -311,19 +302,19 @@
                 </div>
                 <div class="col-6">
                   
-                  <a href="chitietvh-at.php?id=<?php echo $row['id']; ?>"><figure><img src="<?php echo $row['image']; ?>"></figure></a>
+                  <a href="chitietvh-at.php?id=<?php echo $row['id']; ?>"><figure><img style="border-radius: 10px" src="<?php echo $row['image']; ?>"></figure></a>
                 </div>
                 </div>
                 </div>
                   </div>
 <?php } ?>
-                  <div class="col-sm-6">
+                  <div class="col-sm-6 w3-animate-right">
                     <?php
-                       $sql= "select * from new where id=11";
+                       $sql= "select * from new where id=8";
                       $datas = executeResult($sql);
                       ?>
                       <?php foreach ($datas as $row) {?>
-                    <figure style="z-index: -1;"><a href="chitietvh-at.php?id=<?=$id?>"><img src="<?php echo $row['image']; ?>"></a></figure>
+                    <figure style="z-index: -1;"><a href="chitietvh-at.php?id=<?=$id?>"><img style="border-radius: 15px" src="<?php echo $row['image']; ?>"></a></figure>
                     <div class="h1">
                       <hr class="hrsp" style="width: 50px;border-color: WHITE; margin-left: 27PX">
                       <a href="chitietvh-at.php?id=<?php echo $row['id']; ?>" style="text-decoration: none;"><h1 style="z-index:1000; color:#F8F8FF; font-size:20px" ><?php echo $row['title_vhat1']; ?></h1></a>

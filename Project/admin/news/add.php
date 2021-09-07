@@ -1,6 +1,6 @@
 <?php
 require_once ('../../datab/dbhelper.php');
-
+require_once ('../er.php');
 $id = $title = $image = $content = $content_vhat = $title_vhat1 = $type_of_new = $id_category = '';
 if (!empty($_POST)) {
 	if (isset($_POST['title'])) {
@@ -55,7 +55,7 @@ if (!empty($_POST)) {
 if (isset($_GET['id'])) {
 	$id      = $_GET['id'];
 	$sql     = 'select * from new where id = '.$id;
-	$new 	 = executeSingleResult($sql);
+	$new 	   = executeSingleResult($sql);
 	if ($new != null) {
 		$title       		= $new['title'];
 		
@@ -89,6 +89,7 @@ if (isset($_GET['id'])) {
 	<!-- include summernote css/js -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<link rel='shortcut icon' href='https://www.sabeco.com.vn/Data/Sites/1/skins/default/favicon.ico' />
 </head>
 <body>
 	 <ul class="nav nav-tabs">

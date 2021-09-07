@@ -9,20 +9,10 @@
 			$password   = $_POST["password"];
 			$sql		= "select * from admin where username ='$usrnm' and password='$password' " ;
 			$user = mysqli_query($con, $sql);
-			// $data = mysqli_fetch_assoc($user); 
+			
 
 			if(mysqli_num_rows($user)>0){
-				// if($_POST["username"]=="nvloi" ){	
-				// 	echo "<script>
-				// 	      alert('--- Xin chào admin ! Chuyển hướng đăng nhập vào trang quản trị----');
-				// 		  window.location='http://localhost/project/admin/product/product.php';
-				// 	      </script>";
-				// 	$_SESSION["username"] = $usrnm;
-
-					
-
-				// }
-				// else{
+				
 
 				$_SESSION["username"] = $usrnm;
 				header("Location: ../admin/category/category.php");

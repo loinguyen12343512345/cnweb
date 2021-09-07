@@ -1,6 +1,7 @@
 <?php
 require_once ('../../datab/dbhelper.php');
-// chưa lưu
+require_once ('../er.php');
+
 
 $id = $name = '';
 if (!empty($_POST)) {
@@ -48,6 +49,7 @@ if (isset($_GET['id'])) {
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel='shortcut icon' href='https://www.sabeco.com.vn/Data/Sites/1/skins/default/favicon.ico' />
 </head>
 <body>
 	<ul class="nav nav-tabs">
@@ -77,7 +79,7 @@ if (isset($_GET['id'])) {
 					  <input type="text" name="id" value="<?=$id?>" hidden="true">
 					  <input required="true" type="text" class="form-control" id="name" name="name" value="<?=$name?>">
 					</div>
-					<button class="btn btn-success">Lưu</button>
+					<button class="btn btn-success">Save</button>
 				</form>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 		$total_records = (executeSingleResult($count)['total']);
 		// TÌM LIMIT VÀ CURRENT_PAGE
 	    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-		$limit = 6;
+		$limit = 9;
 		// tổng số trang
 		$total_page = ceil($total_records / $limit);
 		// Giới hạn current_page trong khoảng 1 đến total_page
@@ -45,7 +45,7 @@
             				<a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['image']; ?>" style="height: 150px; width: 100%;"></a></figure>
             				<p class="disabled" style="font-size:12px ;color: lightgray;"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $row['updated_at']; ?></p>
 
-            				<a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><strong style="font-size: 12px;"><?php echo $row['title']; ?></strong></a>
+            				<a href="chitiettt-sk.php?id=<?php echo $row['id'] ?>"><strong style="font-size: 12px;"><?php echo $row['title']; ?> </strong> </a>
             			<hr >
             		</div>
             		
@@ -55,22 +55,22 @@
             	<div class="row2 text-center" style="font-size: 20px; text-align: center;">
 				
 
-				<ul class="pagination justify-content-center">
+				<ul class="pagination justify-content-center " >
 					<?php if ($current_page > 1 && $total_page > 1){?>
-						<li class="page-item"><a class="page-link" href="tt-sk.php?page=<?php echo ($current_page-1); ?>">Prev</a></li>
+						<li class="page-item"><a class="page-link" style="color: #B22222" href="tt-sk.php?page=<?php echo ($current_page-1); ?>">Prev</a></li>
 					<?php }?>
 					<?php for ($i = 1; $i <= $total_page; $i++){
                 		// Nếu là trang hiện tại thì hiển thị thẻ span
                 		// ngược lại hiển thị thẻ a
 						if ($i == $current_page){?>
-							<li class="page-item"><a class="page-link" href=""><?php echo $i; ?></a></li>
+							<li class="page-item"><a class="page-link" style="color: #B22222" href=""><?php echo $i; ?></a></li>
 						<?php }
 						else{?>
-							<li class="page-item"><a class="page-link" href="tt-sk.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+							<li class="page-item"><a class="page-link" style="color: #B22222" href="tt-sk.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 						<?php }
 					}?>
 					<?php if ($current_page < $total_page && $total_page > 1){?>
-						<li class="page-item"><a class="page-link" href="tt-sk.php?page=<?php echo ($current_page+1); ?>"> Next</a></li>
+						<li class="page-item"><a class="page-link" style="color: #B22222" href="tt-sk.php?page=<?php echo ($current_page+1); ?>"> Next</a></li>
 					<?php }?>
 				   
 				  </ul>
